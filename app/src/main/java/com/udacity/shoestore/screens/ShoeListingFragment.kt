@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.udacity.shoestore.R
@@ -41,8 +42,11 @@ class ShoeListingFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
      displayList()
+
+        binding.floatingActionButton.setOnClickListener (
+            Navigation.createNavigateOnClickListener(ShoeListingFragmentDirections.actionShoeListingFragmentToNewShoeFragment())
+                )
     }
 
     fun displayList()

@@ -2,20 +2,41 @@
 <layout xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <ScrollView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:ignore="SpeakableTextPresentCheck">
+        android:layout_height="match_parent">
 
-
-        <LinearLayout
-            android:id="@+id/LinearLayoutList"
+        <ScrollView
             android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:ignore="SpeakableTextPresentCheck">
+
+
+            <LinearLayout
+                android:id="@+id/LinearLayoutList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+            </LinearLayout>
+        </ScrollView>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:id="@+id/floatingActionButton"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_margin="@dimen/margin16dp"
+            android:src="@drawable/ic_baseline_add_24"
+            tools:ignore="SpeakableTextPresentCheck"
+            android:contentDescription="@string/add_new_shoe">
+
+        </com.google.android.material.floatingactionbutton.FloatingActionButton>
+
+    </RelativeLayout>
 
 
-        </LinearLayout>
 
-    </ScrollView>
 </layout>

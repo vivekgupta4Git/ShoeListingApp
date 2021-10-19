@@ -3,6 +3,7 @@ package com.udacity.shoestore.models
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import timber.log.Timber
 
 class ShoeViewModel : ViewModel() {
 
@@ -16,7 +17,7 @@ class ShoeViewModel : ViewModel() {
 
 
     init {
-        _shoe.value = Shoe("",1.1,"","")
+        _shoe.value = Shoe("",0.0,"","")
     _shoesList.value = List_of_Shoes()
     }
 
@@ -40,8 +41,8 @@ class ShoeViewModel : ViewModel() {
     //function for adding new Shoe to List
     fun add_Shoe_to_List(newShoe : Shoe)
     {
-
         _shoesList.value?.add(newShoe)
+
     }
 
 }
