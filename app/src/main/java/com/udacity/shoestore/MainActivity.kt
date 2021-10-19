@@ -6,8 +6,6 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 import timber.log.Timber
-import androidx.fragment.app.activityViewModels
-import com.udacity.shoestore.models.ShoeViewModel
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,8 +18,6 @@ class MainActivity : AppCompatActivity() {
 
         val appBarConfiguration = AppBarConfiguration(navController.graph)
         NavigationUI.setupActionBarWithNavController(this,navController,appBarConfiguration)
-
-
 
 
 

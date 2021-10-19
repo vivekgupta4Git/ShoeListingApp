@@ -33,12 +33,12 @@ class LoginFragment  : Fragment() {
         binding.loginButton.setOnClickListener {
             Navigation.findNavController(view).navigate(R.id.action_loginFragment_to_welcomeFragment)
         }
-
         //Signup Button Onclick Listener
-        binding.signupButton.setOnClickListener {
-         //   Navigation.createNavigateOnClickListener(R.id.action_loginFragment_to_welcomeFragment)
-            Navigation.findNavController(it).navigate(R.id.action_loginFragment_to_welcomeFragment)
-        }
+
+        binding.signupButton.setOnClickListener(
+        Navigation.createNavigateOnClickListener(R.id.action_loginFragment_to_welcomeFragment)
+        )
+
     }
 
 }
