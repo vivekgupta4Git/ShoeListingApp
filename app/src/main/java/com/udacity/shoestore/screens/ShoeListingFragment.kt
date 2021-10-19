@@ -2,15 +2,10 @@ package com.udacity.shoestore.screens
 
 import android.os.Bundle
 import android.view.*
-import android.widget.LinearLayout
-import android.widget.TextView
-import androidx.core.view.marginLeft
-import androidx.core.view.marginRight
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
@@ -42,42 +37,39 @@ class ShoeListingFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-     displayList()
 
         binding.floatingActionButton.setOnClickListener (
             Navigation.createNavigateOnClickListener(ShoeListingFragmentDirections.actionShoeListingFragmentToNewShoeFragment())
                 )
-    }
-
-    fun displayList()
-    {
-//        use an Activity level ViewModel to hold a list of Shoes (use by activityViewModels)
-        val   viewModel: ShoeViewModel by activityViewModels()
 
 
-        viewModel.shoeList.observe(viewLifecycleOwner, { list_of_shoes->
-            for (shoe in list_of_shoes)
-            {
-                itemBinding = ItemLayoutBinding.inflate(
-                    LayoutInflater.from(requireContext()),binding.LinearLayoutList,false
-                )
 
-                itemBinding.shoeNameTextView.text = shoe.name
-                itemBinding.shoeCompanyTextView.text = shoe.company
-                itemBinding.shoeSizeTextView.text = shoe.size.toString()
-                itemBinding.shoeDescriptionTextView.text = shoe.description
+        val viewModel : ShoeViewModel by activityViewModels()
 
-                //Add the new layout element
-                binding.LinearLayoutList.addView(itemBinding.root)
+
+        viewModel.shoeList.observe(requireActivity(), Observer {
+
+            it.forEach{shoe->
+                addShoe(shoe)
             }
+
+
         })
 
+    }
+
+
+    //displaying shoe list in onCreate
+    fun addShoe(s : Shoe){
+        itemBinding = ItemLayoutBinding.inflate(layoutInflater,binding.LinearLayoutList,false)
+
+        itemBinding.shoeData = s
+        binding.LinearLayoutList.addView(itemBinding.root)
 
     }
 
 
-
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+   override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
         inflater.inflate(R.menu.overflow_menu,menu)
     }

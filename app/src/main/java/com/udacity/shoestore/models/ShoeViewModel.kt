@@ -7,7 +7,7 @@ import timber.log.Timber
 
 class ShoeViewModel : ViewModel() {
 
- private var _shoe = MutableLiveData<Shoe>()
+    private var _shoe = MutableLiveData<Shoe>()
     val shoe : LiveData<Shoe>
     get() = _shoe
 
@@ -17,7 +17,7 @@ class ShoeViewModel : ViewModel() {
 
 
     init {
-        _shoe.value = Shoe("",0.0,"","")
+        _shoe.value = Shoe("Sample",0.0,"Co.","des")
     _shoesList.value = List_of_Shoes()
     }
 
@@ -44,5 +44,7 @@ class ShoeViewModel : ViewModel() {
         _shoesList.value?.add(newShoe)
 
     }
+
+
 
 }

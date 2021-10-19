@@ -10,6 +10,8 @@ import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
+import androidx.navigation.ui.NavigationUI
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentNewShoeBinding
 import com.udacity.shoestore.models.Shoe
@@ -66,7 +68,19 @@ class NewShoeFragment : Fragment() {
 
             //calling add shoe to list function of viewModel
             viewModel.add_Shoe_to_List(Shoe(name,size,company,description))
+
+
+            //once done , get back to Shoe List
+
+            Navigation.findNavController(view).navigate(NewShoeFragmentDirections.actionNewShoeFragmentToShoeListingFragment())
         }
+
+
+        binding.cancelButton.setOnClickListener {
+            Navigation.findNavController(view).navigate(NewShoeFragmentDirections.actionNewShoeFragmentToShoeListingFragment())
+
+        }
+
     }
 
 
