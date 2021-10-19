@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="ShoeData"
+            type="com.udacity.shoestore.models.Shoe" />
+    </data>
+    <LinearLayout
+        android:layout_margin="@dimen/margin16dp"
+        android:id="@+id/item_LinearLayout"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/shoeNameTextView"
+            android:layout_margin="@dimen/margin16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{ShoeData.name}"
+            />
+        <TextView
+            android:id="@+id/shoeCompanyTextView"
+            android:layout_margin="@dimen/margin16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{ShoeData.company}"
+            />
+
+        <TextView
+            android:id="@+id/shoeSizeTextView"
+            android:layout_margin="@dimen/margin16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{Double.toString(ShoeData.size)}"
+            />
+
+        <TextView
+            android:id="@+id/shoeDescriptionTextView"
+            android:layout_margin="@dimen/margin16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{ShoeData.description}"
+            />
+
+
+
+    </LinearLayout>
+
+</layout>
+
+

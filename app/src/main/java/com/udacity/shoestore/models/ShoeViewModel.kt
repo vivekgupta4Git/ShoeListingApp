@@ -6,6 +6,10 @@ import androidx.lifecycle.ViewModel
 
 class ShoeViewModel : ViewModel() {
 
+ private var _shoe = MutableLiveData<Shoe>()
+    val shoe : LiveData<Shoe>
+    get() = _shoe
+
     private var _shoesList = MutableLiveData<MutableList<Shoe>>()
     val shoeList :LiveData<MutableList<Shoe>>
         get() = _shoesList
@@ -35,7 +39,7 @@ class ShoeViewModel : ViewModel() {
     //function for adding new Shoe to List
     fun add_Shoe_to_List(newShoe : Shoe)
     {
-   //     _shoes.value =newShoe
+
         _shoesList.value?.add(newShoe)
     }
 
