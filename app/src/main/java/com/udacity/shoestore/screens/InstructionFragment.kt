@@ -27,8 +27,8 @@ class InstructionFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.listingButton.setOnClickListener {
 
-            //navigating to Shoe Listing
-            Navigation.findNavController(it).navigate(R.id.action_instructionFragment_to_shoeListingFragment)
+            //navigating to Shoe Listing using safe args class
+            Navigation.findNavController(it).navigate(InstructionFragmentDirections.actionInstructionFragmentToShoeListingFragment())
         }
     }
 

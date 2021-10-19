@@ -30,13 +30,13 @@ class LoginFragment  : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         //Login Button Onclick Listener
+        //using safe args  for navigation.
         binding.loginButton.setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.action_loginFragment_to_welcomeFragment)
+            Navigation.findNavController(view).navigate(LoginFragmentDirections.actionLoginFragmentToWelcomeFragment())
         }
         //Signup Button Onclick Listener
-
         binding.signupButton.setOnClickListener(
-        Navigation.createNavigateOnClickListener(R.id.action_loginFragment_to_welcomeFragment)
+        Navigation.createNavigateOnClickListener(LoginFragmentDirections.actionLoginFragmentToWelcomeFragment())
         )
 
     }

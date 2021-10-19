@@ -7,13 +7,15 @@
             type="com.udacity.shoestore.models.Shoe" />
     </data>
     <LinearLayout
+
         android:layout_margin="@dimen/margin16dp"
         android:id="@+id/item_LinearLayout"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
         <TextView
+            style="@style/myTextViewStyle"
             android:id="@+id/shoeNameTextView"
             android:layout_margin="@dimen/margin16dp"
             android:layout_width="wrap_content"
@@ -21,6 +23,7 @@
             android:text="@{ShoeData.name}"
             />
         <TextView
+            style="@style/myTextViewStyle"
             android:id="@+id/shoeCompanyTextView"
             android:layout_margin="@dimen/margin16dp"
             android:layout_width="wrap_content"
@@ -29,6 +32,7 @@
             />
 
         <TextView
+            style="@style/myTextViewStyle"
             android:id="@+id/shoeSizeTextView"
             android:layout_margin="@dimen/margin16dp"
             android:layout_width="wrap_content"
@@ -37,6 +41,7 @@
             />
 
         <TextView
+            style="@style/myTextViewStyle"
             android:id="@+id/shoeDescriptionTextView"
             android:layout_margin="@dimen/margin16dp"
             android:layout_width="wrap_content"

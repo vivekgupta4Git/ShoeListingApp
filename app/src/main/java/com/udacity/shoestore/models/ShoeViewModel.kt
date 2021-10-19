@@ -16,6 +16,7 @@ class ShoeViewModel : ViewModel() {
 
 
     init {
+        _shoe.value = Shoe("",1.1,"","")
     _shoesList.value = List_of_Shoes()
     }
 

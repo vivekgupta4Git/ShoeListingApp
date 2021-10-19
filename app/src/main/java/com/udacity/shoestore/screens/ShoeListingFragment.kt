@@ -18,7 +18,6 @@ import com.udacity.shoestore.databinding.FragmentShoelistingBinding
 import com.udacity.shoestore.databinding.ItemLayoutBinding
 import com.udacity.shoestore.models.Shoe
 import com.udacity.shoestore.models.ShoeViewModel
-import org.w3c.dom.Text
 
 class ShoeListingFragment : Fragment() {
 
@@ -42,19 +41,36 @@ class ShoeListingFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+     displayList()
+    }
+
+    fun displayList()
+    {
 //        use an Activity level ViewModel to hold a list of Shoes (use by activityViewModels)
-     val   viewModel: ShoeViewModel by activityViewModels()
+        val   viewModel: ShoeViewModel by activityViewModels()
 
 
         viewModel.shoeList.observe(viewLifecycleOwner, { list_of_shoes->
             for (shoe in list_of_shoes)
             {
-                itemBinding = ItemLayoutBinding.inflate(layoutInflater)
-                itemBinding.shoeData = shoe
+                itemBinding = ItemLayoutBinding.inflate(
+                    LayoutInflater.from(requireContext()),binding.LinearLayoutList,false
+                )
+
+                itemBinding.shoeNameTextView.text = shoe.name
+                itemBinding.shoeCompanyTextView.text = shoe.company
+                itemBinding.shoeSizeTextView.text = shoe.size.toString()
+                itemBinding.shoeDescriptionTextView.text = shoe.description
+
+                //Add the new layout element
+                binding.LinearLayoutList.addView(itemBinding.root)
             }
         })
 
+
     }
+
 
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
