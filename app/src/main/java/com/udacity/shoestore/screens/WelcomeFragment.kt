@@ -27,9 +27,9 @@ class WelcomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         //after the view Created, set up onclick listener on Go Button
-
+        //safe args inclusion
         binding.letsGoButton.setOnClickListener {
-            Navigation.findNavController(it).navigate(R.id.action_welcomeFragment_to_instructionFragment)
+            Navigation.findNavController(it).navigate(WelcomeFragmentDirections.actionWelcomeFragmentToInstructionFragment())
         }
     }
 
