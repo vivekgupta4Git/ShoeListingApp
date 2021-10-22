@@ -38,7 +38,9 @@ class ShoeListingFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        //floating action Button OnClick Listener
         binding.floatingActionButton.setOnClickListener (
+            //Take user to Add Shoe Detail Page
             Navigation.createNavigateOnClickListener(ShoeListingFragmentDirections.actionShoeListingFragmentToNewShoeFragment())
                 )
 
@@ -47,7 +49,7 @@ class ShoeListingFragment : Fragment() {
         val viewModel : ShoeViewModel by activityViewModels()
 
 
-        viewModel.shoeList.observe(requireActivity(), Observer {
+        viewModel.shoeList.observe(viewLifecycleOwner, Observer {
 
             it.forEach{shoe->
                 addShoe(shoe)
@@ -62,7 +64,6 @@ class ShoeListingFragment : Fragment() {
     //displaying shoe list in onCreate
     fun addShoe(s : Shoe){
         itemBinding = ItemLayoutBinding.inflate(layoutInflater,binding.LinearLayoutList,false)
-
         itemBinding.shoeData = s
         binding.LinearLayoutList.addView(itemBinding.root)
 
