@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">ShoeStore</string>
+    <string name="email_label">Email</string>
+    <string name="emailEdit_hint">Enter your Email here</string>
+    <string name="password_label">Password</string>
+    <string name="password_hint">Enter your password here</string>
+    <string name="create_account_button_label">Sign Up</string>
+    <string name="login_label">LogIn</string>
+    <string name="userWelcome">Welcome User !</string>
+    <string name="longText">
+        This project consist of five screens. \n
+        1.  Login screen \n
+        2.  Welcome onboarding screen \n
+        3.  Instructions onboarding screen \n
+        4.  Shoe Listing screen \n
+        5.  Shoe Detail screen for adding a new shoe
+    \n
+        After Clicking on "View Shoe Listing" \n
+        ,it will display List of Shoes Available\n
+        To Add new Shoe to the list \n
+        Click on Floating Button (Present at Bottom Right)
+        \n
+
+    </string>
+    <string name="random_text">Ready for Rock n Roll?</string>
+    <string name="LogOut">Log Out</string>
+    <string name="instructions_screen">Instructions Screen</string>
+    <string name="view_shoe_listing_buttontext">View Shoe Listing</string>
+    <string name="description">Description</string>
+    <string name="shoe_size">Shoe Size</string>
+    <string name="company">Company</string>
+    <string name="name">Name</string>
+    <string name="hint_shoe_name">Enter Shoe Name</string>
+    <string name="name_label">Name</string>
+    <string name="save_Button_text">Save</string>
+    <string name="cancel_button_text">Cancel</string>
+    <string name="add_new_shoe">Add new Shoe</string>
+</resources>

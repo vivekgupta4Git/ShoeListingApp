@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!--Onboarding screen after Login-->
+
+<!--to Data Binding-->
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-
+<!--using Constraint layout because of its benefits against other layouts-->
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+<!--    Welcome Label -->
     <TextView
         android:id="@+id/userWelcomeTextView"
         style="@style/myTextViewStyle"
@@ -20,6 +25,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+<!--    Random Text For user -->
     <TextView
 
         android:id="@+id/instructionTextView"
