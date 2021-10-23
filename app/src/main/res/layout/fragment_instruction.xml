@@ -1,19 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 
+<!--Databinding-->
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+<!--    As this screen might have large text for displaying detail instruction , we are using scroll view -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+<!--        Constraining layout under scrollview-->
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     tools:context=".screens.InstructionFragment">
 
 
+<!--    Instruction label-->
     <TextView
         android:id="@+id/InstructionText"
         style="@style/myTextViewStyle"
@@ -27,6 +31,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+<!--    Instructions text-->
     <TextView
         android:id="@+id/textView2"
         style="@style/myTextViewStyle"
@@ -38,11 +43,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/InstructionText" />
 
+<!--    Button to let user go to Listing Screen-->
     <Button
         android:id="@+id/listingButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="24dp"
         android:text="@string/view_shoe_listing_buttontext"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"

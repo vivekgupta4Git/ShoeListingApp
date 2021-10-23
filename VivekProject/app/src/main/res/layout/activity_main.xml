@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--Default layout selected by ide, doesn't matter much as we will be having other fragment layout -->
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<!-- Default layout provided my IDE-->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-<!-- Fragment Container for Nav Host-->
+    //Nav Host Fragment
     <fragment
         android:layout_marginTop="?attr/actionBarSize"
         app:navGraph="@navigation/nav_graph"
@@ -17,4 +18,4 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

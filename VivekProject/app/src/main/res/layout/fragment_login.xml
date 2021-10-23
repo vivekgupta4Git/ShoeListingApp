@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<!-- for data Binding-->
+<!--For data binding -->
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     >
 
-<!-- Constraining layout to get adjusted depending upon phone screen -->
+<!-- To make layout adjustable to almost any screen , I am using constraint layout-->
     <androidx.constraintlayout.widget.ConstraintLayout
 
         android:layout_height="match_parent"
         android:layout_width="match_parent"
         >
 
-        <!-- Email Label-->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -26,7 +25,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-<!--        Email EditText-->
         <EditText
             android:id="@+id/userEmailEditText"
             android:layout_width="match_parent"
@@ -41,7 +39,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/emailTextView"
             app:layout_constraintTop_toBottomOf="@+id/emailTextView" />
-<!--Password Label-->
+
         <TextView
             style="@style/myTextViewStyle"
             android:id="@+id/passwordTextView"
@@ -53,8 +51,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/userEmailEditText" />
 
-
-<!--        Password EditText-->
         <EditText
             android:id="@+id/userPasswordEditText"
             android:layout_width="match_parent"
@@ -69,7 +65,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/passwordTextView" />
 
-<!--        Sign Up Button -->
+
         <Button
             android:id="@+id/signupButton"
             android:layout_width="wrap_content"
@@ -80,7 +76,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/userPasswordEditText" />
 
-<!--        Login Button-->
         <Button
             android:id="@+id/loginButton"
             android:layout_width="wrap_content"
