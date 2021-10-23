@@ -9,6 +9,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI
@@ -28,6 +29,7 @@ class NewShoeFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_new_shoe, container, false)
+
         return binding.root
 
     }
@@ -37,43 +39,23 @@ class NewShoeFragment : Fragment() {
      //activity view model as per project requirement
         val   viewModel: ShoeViewModel by activityViewModels()
 
-        //onClick listener for save Button
-        binding.saveButton.setOnClickListener {
+//implementing two way data Binding as explained here
+        //https://knowledge.udacity.com/questions/692432
+
+        //initializing
+        binding.viewModelShoe = viewModel
+        binding.newShoe = Shoe("",0.0,"","")
+
+        binding.lifecycleOwner = this
 
 
-            var name = binding.nameEditTxt.text.toString()
-
-            //checking for null or empty string
-            if(name.isNullOrEmpty())
-            {
-                name =""
+        viewModel.isShoeAdded.observe(viewLifecycleOwner, Observer { addingShoeComplete->
+            if(addingShoeComplete) {
+                Navigation.findNavController(view)
+                    .navigate(NewShoeFragmentDirections.actionNewShoeFragmentToShoeListingFragment())
+            viewModel.addingComplete()
             }
-
-            var company = binding.companyEditTxt.text.toString()
-
-            if(company.isNullOrEmpty())
-            {
-                company = ""
-            }
-
-            //if unable to convert to double set it to 0.0 using elvis operator
-            val size = binding.sizeEditTxt.text.toString().toDoubleOrNull() ?: 0.0
-
-            //checking for Null or Empty
-            var description = binding.descriptionEditTxt.text.toString()
-            if(description.isNullOrEmpty())
-            {
-                description = ""
-            }
-
-            //calling add shoe to list function of viewModel
-            viewModel.add_Shoe_to_List(Shoe(name,size,company,description))
-
-
-            //once done , get back to Shoe List
-
-            Navigation.findNavController(view).navigate(NewShoeFragmentDirections.actionNewShoeFragmentToShoeListingFragment())
-        }
+        })
 
 
         binding.cancelButton.setOnClickListener {

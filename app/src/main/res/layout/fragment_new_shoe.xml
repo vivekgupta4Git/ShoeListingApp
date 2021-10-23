@@ -6,6 +6,19 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     >
 
+        <data>
+                <variable
+                    name="NewShoe"
+                    type="com.udacity.shoestore.models.Shoe" />
+
+                <variable
+                    name="viewModelShoe"
+                    type="com.udacity.shoestore.models.ShoeViewModel" />
+        </data>
+
+
+
+
 <!--We can have Linearlayout here too but constraint layout has more benefits so using and practising-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -13,6 +26,7 @@
 
 <!--        Description Label -->
         <TextView
+
             android:id="@+id/descriptionTxt"
             style="@style/myTextViewStyle"
             android:layout_width="wrap_content"
@@ -62,6 +76,7 @@
 
 <!--        Edit Text for Shoe Name-->
         <EditText
+            android:text="@={NewShoe.name}"
             android:id="@+id/nameEditTxt"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -79,6 +94,8 @@
 
 <!--        Company EditText-->
         <EditText
+            android:text="@={NewShoe.company}"
+            android:hint="@string/company"
             android:id="@+id/companyEditTxt"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -93,7 +110,11 @@
             app:layout_constraintVertical_bias="0.0" />
 
 <!--        Shoe Size EditText-->
+<!--double was giving trouble by thanks to udacity mentor Nicolas P , I got it working-->
+<!--            https://knowledge.udacity.com/questions/692432  in comments I found the answer-->
         <EditText
+            android:hint="@string/shoe_size"
+            android:text="@={ `` + NewShoe.size}"
             android:id="@+id/sizeEditTxt"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -110,6 +131,8 @@
 
 <!--        Description EditText-->
         <EditText
+
+            android:text="@={NewShoe.description}"
             android:hint="@string/description"
             android:id="@+id/descriptionEditTxt"
             android:layout_width="0dp"
@@ -128,6 +151,7 @@
 
 <!--        Button to let user save Details-->
         <Button
+            android:onClick="@{() ->viewModelShoe.add_Shoe_to_List(NewShoe)}"
             android:id="@+id/saveButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

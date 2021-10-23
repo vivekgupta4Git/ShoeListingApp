@@ -17,12 +17,20 @@ class ShoeViewModel : ViewModel() {
         get() = _shoesList
 
 
+    private var _isShoeAdded = MutableLiveData<Boolean>()
+    val isShoeAdded : LiveData<Boolean>
+    get() = _isShoeAdded
+
     init {
         //initializing Shoe with sample Value
         _shoe.value = Shoe("Sample",0.0,"Co.","des")
         //initial shoe List with four sample data
     _shoesList.value = List_of_Shoes()
+
+        _isShoeAdded.value = false
     }
+
+
 
     //function to return list of shoes
   private   fun List_of_Shoes(): MutableList<Shoe>? {
@@ -44,12 +52,16 @@ class ShoeViewModel : ViewModel() {
     //function for adding new Shoe to List
     fun add_Shoe_to_List(newShoe : Shoe)
     {
-        _shoesList.value?.add(newShoe)
 
-        Timber.i("Shoe List is now : ${shoeList.value}")
+        _shoesList.value?.add(newShoe)
+        _isShoeAdded.value = true
 
     }
 
-
+    //function for complete adding new Shoe to List
+fun addingComplete()
+    {
+    _isShoeAdded.value = false
+}
 
 }
